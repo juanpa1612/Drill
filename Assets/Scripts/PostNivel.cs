@@ -14,7 +14,7 @@ public class PostNivel : MonoBehaviour {
     private float metros;
     private int score;
     private int monedas;
-    private string lastLevel = "Nivel1";
+    private string lastLevel = "Prototipo";
 
 	// Use this for initialization
 	void Start ()

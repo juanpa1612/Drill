@@ -35,7 +35,7 @@ public class btnNivel : MonoBehaviour {
     
     public void Drill ()
     {
-        SceneManager.LoadScene("Nivel"+numNivel);
+        SceneManager.LoadScene("Prototipo");
         Debug.Log(numNivel);
     }
 
