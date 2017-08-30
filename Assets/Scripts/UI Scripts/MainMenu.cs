@@ -10,6 +10,7 @@ public class MainMenu : MonoBehaviour
     public CanvasGroup laboratorio;
     public CanvasGroup inventario;
     public CanvasGroup ajustes;
+
     public CanvasGroup gift;
     public CanvasGroup tasks;
 
@@ -107,4 +108,29 @@ public class MainMenu : MonoBehaviour
         animPestañaActual.SetBool("Active", false);
     }
 
+    public Animator AnimActual
+    {
+        get
+        {
+            return animActual;
+        }
+
+        set
+        {
+            animActual = value;
+        }
+    }
+
+    public Animator AnimPestañaActual
+    {
+        get
+        {
+            return animPestañaActual;
+        }
+
+        set
+        {
+            animPestañaActual = value;
+        }
+    }
 }

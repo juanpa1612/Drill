@@ -7,30 +7,32 @@ using UnityEngine.SceneManagement;
 public class btnNivel : MonoBehaviour {
 
     public GameObject panelSeleccion;
-    private bool clickAfuera;
+
+    private MainMenu mainMenu;
+    private Animator animSeleccion;
+
     static string numNivel ="0";
 
-    public void Hide ()
+
+    private void Start()
     {
-        if (panelSeleccion.active == true)
-        {
-            panelSeleccion.GetComponent<Animator>().SetBool("Fade", false);
-            Invoke("Desactivar", 1f);
-        }
+        mainMenu = GameObject.Find("Canvas").GetComponent<MainMenu>();
+
+        animSeleccion = panelSeleccion.GetComponent<Animator>();
+    }
+
+    public void Activar ()
+    {
+        animSeleccion.SetBool("Active", true);
+        mainMenu.AnimPestañaActual = animSeleccion;
+
+        numNivel = GetComponentInChildren<Text>().text;
+        Debug.Log(numNivel);
     }
 
     public void Desactivar ()
     {
-        panelSeleccion.SetActive(false);
-    }
-
-    public void Seleccion()
-    {
-        panelSeleccion.SetActive(true);
-        panelSeleccion.GetComponent<Animator>().SetBool("Fade", true);
-        numNivel = GetComponentInChildren<Text>().text;
-        Debug.Log(numNivel);
-
+        animSeleccion.SetBool("Active", false);
     }
     
     public void Drill ()
