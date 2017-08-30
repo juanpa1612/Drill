@@ -139,6 +139,7 @@ public class Taladro1 : MonoBehaviour {
 		}
 		transform.position = Vector3.MoveTowards (transform.position, pos, Time.deltaTime * speed);
 		if(vidas<=0){
+			//PlayerPrefs.SetInt("Player Coins", camara.GetComponent<SmoothCamera2D>().contador);
             SceneManager.LoadScene("PostNivel");
 		}
 	}
@@ -149,6 +150,7 @@ public class Taladro1 : MonoBehaviour {
 
     private void OnBecameInvisible()
     {
+		PlayerPrefs.SetInt("Player Coins", camara.GetComponent<SmoothCamera2D>().contador);
 		SceneManager.LoadScene("PostNivel");
     }
 

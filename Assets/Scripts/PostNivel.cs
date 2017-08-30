@@ -19,6 +19,7 @@ public class PostNivel : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
+		PlayerPrefs.Save ();
         panel1.gameObject.SetActive(false);
         materiales.SetActive(false);
         botones.SetActive(false);

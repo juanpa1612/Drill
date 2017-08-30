@@ -27,6 +27,7 @@ public class MainMenu : MonoBehaviour
 
     private void Start()
     {
+		//PlayerPrefs.SetInt ("Player Coins", 0);
         animNiveles = niveles.GetComponent<Animator>();
         animTaller = taller.GetComponent<Animator>();
         animLaboratorio = laboratorio.GetComponent<Animator>();

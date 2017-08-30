@@ -17,7 +17,7 @@ using UnityEngine.UI;
 	void Awake()
 	{
         noTerminado = true;
-		contador = 0;
+		contador = PlayerPrefs.GetInt("Player Coins");
 		vidas = 3;
 		cam = GetComponent<Camera> ();
 	}
@@ -27,10 +27,10 @@ using UnityEngine.UI;
      {
          if (target&&noTerminado)
          {
-             Vector3 point = cam.WorldToViewportPoint(target.position);
+            Vector3 point = cam.WorldToViewportPoint(target.position);
 			Vector3 delta = target.position - cam.ViewportToWorldPoint(new Vector3(0.5f, 0.9f, point.z)); 
-             Vector3 destination = transform.position + delta;
-             transform.position = Vector3.SmoothDamp(transform.position, destination, ref velocity, dampTime);
+            Vector3 destination = transform.position + delta;
+            transform.position = Vector3.SmoothDamp(transform.position, destination, ref velocity, dampTime);
          }
 		monedas.text = contador.ToString();
 		mostrarVidas.text = vidas.ToString ();
