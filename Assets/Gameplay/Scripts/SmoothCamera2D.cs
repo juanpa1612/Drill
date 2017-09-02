@@ -17,7 +17,7 @@ using UnityEngine.UI;
 	void Awake()
 	{
         noTerminado = true;
-		contador = PlayerPrefs.GetInt("Player Coins");
+		//contador = PlayerPrefs.GetInt("Player Coins");
 		vidas = 3;
 		cam = GetComponent<Camera> ();
 	}

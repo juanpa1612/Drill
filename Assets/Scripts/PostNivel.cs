@@ -29,7 +29,7 @@ public class PostNivel : MonoBehaviour {
 	
     public void NextLevel ()
     {
-        SceneManager.LoadScene("Niveles");
+        SceneManager.LoadScene("Main");
     }
 
     public void RepetirNivel ()

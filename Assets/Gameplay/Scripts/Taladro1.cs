@@ -66,13 +66,13 @@ public class Taladro1 : MonoBehaviour {
 		if(tiempoAceleracion<=0){
 			speedCaida = 15f;
 			tiempoAceleracion = 2f;
+			acelerando = false;
 			castigo = true;
 		}
 		if (castigo) {
 			tiempoCastigo -= Time.deltaTime;
 		}
 		if (tiempoCastigo <= 0) {
-			acelerando = false;
 			castigo = false;
 			tiempoCastigo = 1f;
 		}
@@ -109,11 +109,11 @@ public class Taladro1 : MonoBehaviour {
 				endPos = touch.position;
 				SwipeDistance = (endPos - starPos).magnitude;
 				SwipeTime = endTime - startTime;
-				Debug.Log ("Paso por aca");
+				//Debug.Log ("Paso por aca");
 				if (SwipeTime < maxTime && SwipeDistance > minSwipeDist) {
 					Vector2 distance = endPos - starPos;
 					if (Mathf.Abs (distance.x) > Mathf.Abs (distance.y)) {
-						Debug.Log ("Horizonal Swipe");
+						//Debug.Log ("Horizonal Swipe");
 						if (distance.x > 0) {
 							if(tr.position.x==pos.x&&tr.position.x<3){
 								pos.x+=4; 
@@ -126,7 +126,7 @@ public class Taladro1 : MonoBehaviour {
 						}
 					}
 					if (Mathf.Abs (distance.x) < Mathf.Abs (distance.y)) {
-						Debug.Log ("Vertical Swipe");
+						//Debug.Log ("Vertical Swipe");
 						if (distance.y < 0) {
 							if (!acelerando){
 								speedCaida = 25f;
@@ -150,7 +150,7 @@ public class Taladro1 : MonoBehaviour {
 
     private void OnBecameInvisible()
     {
-		PlayerPrefs.SetInt("Player Coins", camara.GetComponent<SmoothCamera2D>().contador);
+		PlayerPrefs.SetInt("Player Coins", PlayerPrefs.GetInt("Player Coins")+camara.GetComponent<SmoothCamera2D>().contador);
 		SceneManager.LoadScene("PostNivel");
     }
 
