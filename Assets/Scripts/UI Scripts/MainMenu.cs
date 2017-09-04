@@ -84,12 +84,8 @@ public class MainMenu : MonoBehaviour
 
     public void Ajustes ()
     {
-        animActual.SetBool("Active", false);
-        animPestañaActual.SetBool("Active", false);
-
-        animActual = animAjustes;
-
         animAjustes.SetBool("Active", true);
+        animPestañaActual = animAjustes;
     }
 
     public void Gifts ()
