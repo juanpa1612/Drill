@@ -7,11 +7,15 @@ using UnityEngine.UI;
     public float dampTime = 0.15f;    
     public Transform target;
 	public int contador;
+	public int contadorRuby;
+	public int contadorMetal;
+	public int metros;
 	public int vidas;
 	private Vector3 velocity = Vector3.zero;
 	private Camera cam;
 	public Text monedas;
 	public Text mostrarVidas;
+	public Text mostrarMetros;
     public bool noTerminado;
 
 	void Awake()
@@ -34,5 +38,6 @@ using UnityEngine.UI;
          }
 		monedas.text = contador.ToString();
 		mostrarVidas.text = vidas.ToString ();
+		mostrarMetros.text = metros.ToString ();
      }
  }

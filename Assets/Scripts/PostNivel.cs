@@ -24,6 +24,7 @@ public class PostNivel : MonoBehaviour
 
     private Animator animEstrellas;
 
+	private SmoothCamera2D drill;
     private float metrosRecorridos;
     private float metrosTotales;
     private float score;
@@ -35,10 +36,11 @@ public class PostNivel : MonoBehaviour
 
 	void Start ()
     {
-        animEstrellas = estrellas.GetComponent<Animator>();
-        /*vidasPlayer = PlayerPrefs.GetInt();*/
+		drill = GameObject.FindGameObjectWithTag ("MainCamera").GetComponent<SmoothCamera2D>();
 
-        PlayerPrefs.Save ();
+		animEstrellas = estrellas.GetComponent<Animator>();
+
+		vidasPlayer = drill.vidas;
 
         panel1.gameObject.SetActive(false);
         materiales.SetActive(false);
@@ -70,7 +72,7 @@ public class PostNivel : MonoBehaviour
             animEstrellas.SetInteger("Estrellas", 2);
         }
         //3 Estrellas
-        else if (metrosRecorridos >= metrosTotales /*&& vidasPlayer == 3*/)
+        else if (metrosRecorridos >= metrosTotales & vidasPlayer == 3)
         {
             animEstrellas.SetInteger("Estrellas", 3);
         }

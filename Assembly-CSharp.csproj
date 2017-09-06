@@ -48,7 +48,9 @@
   <ItemGroup>
      <Compile Include="Assets\Gameplay\Scripts\EndTrigger.cs" />
      <Compile Include="Assets\Gameplay\Scripts\Enemigo.cs" />
-     <Compile Include="Assets\Gameplay\Scripts\Pickup.cs" />
+     <Compile Include="Assets\Gameplay\Scripts\PauseButton.cs" />
+     <Compile Include="Assets\Gameplay\Scripts\PickupMetal.cs" />
+     <Compile Include="Assets\Gameplay\Scripts\PickupRuby.cs" />
      <Compile Include="Assets\Gameplay\Scripts\Rocks.cs" />
      <Compile Include="Assets\Gameplay\Scripts\SmoothCamera2D.cs" />
      <Compile Include="Assets\Gameplay\Scripts\Taladro.cs" />
@@ -56,12 +58,16 @@
      <Compile Include="Assets\Gameplay\Scripts\Tierra.cs" />
      <Compile Include="Assets\Scripts\Bodega.cs" />
      <Compile Include="Assets\Scripts\Construccion.cs" />
+     <Compile Include="Assets\Scripts\Materiales.cs" />
      <Compile Include="Assets\Scripts\PostNivel.cs" />
      <Compile Include="Assets\Scripts\Resources.cs" />
      <Compile Include="Assets\Scripts\TouchManager.cs" />
      <Compile Include="Assets\Scripts\TouchManager2.cs" />
+     <Compile Include="Assets\Scripts\UI Scripts\Experimentar.cs" />
+     <Compile Include="Assets\Scripts\UI Scripts\Fabricar.cs" />
      <Compile Include="Assets\Scripts\UI Scripts\GemasPlayer.cs" />
      <Compile Include="Assets\Scripts\UI Scripts\Inventario.cs" />
+     <Compile Include="Assets\Scripts\UI Scripts\Laboratorio.cs" />
      <Compile Include="Assets\Scripts\UI Scripts\MainMenu.cs" />
      <Compile Include="Assets\Scripts\UI Scripts\Taller.cs" />
      <Compile Include="Assets\Scripts\UITouchManager.cs" />
