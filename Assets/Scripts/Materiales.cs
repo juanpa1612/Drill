@@ -6,7 +6,9 @@ using UnityEngine.UI;
 public class Materiales : MonoBehaviour
 {
     [SerializeField]
-    private GameObject objGemas;
+    private GameObject objMaterial;
+    [SerializeField]
+    private Sprite sprGemas;
     [SerializeField]
     private Sprite sprMadera;
     [SerializeField]
@@ -18,37 +20,50 @@ public class Materiales : MonoBehaviour
 
     private int materialesRecogidos = 3;
 
+    private SmoothCamera2D playerCamera;
+
     private int gemasPlayer;
-    //Estas variables seran privadas, una vez se haga la referencia a las variables del jugador
-    public int madera;
-    public int metal;
-    public int tierra;
+
+    private int madera;
+    private int metal;
+    private int tierra;
     private int lava;
 
     private void Start()
     {
+        playerCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<SmoothCamera2D>();
+
+        metal = playerCamera.contadorMetal;
+        gemasPlayer = playerCamera.contadorRuby;
+
         ContarMateriales();
-        objGemas.GetComponentInChildren<Text>().text = gemasPlayer.ToString();
-        //Asignar los valores de las variables, según lo recogido en la partida anterior.
     }
 
     public void ContarMateriales ()
     {
+        objMaterial.GetComponentInChildren<Text>().text = gemasPlayer.ToString();
+
+        if (gemasPlayer >= 1)
+        {
+            GameObject gemasRecogidas = GameObject.Instantiate(objMaterial, content2.transform,false);
+            gemasRecogidas.GetComponentInChildren<Text>().text = gemasPlayer.ToString();
+            gemasRecogidas.GetComponent<Image>().sprite = sprGemas;
+        }
         if (madera >= 1)
         {
-            GameObject maderaRecogida = GameObject.Instantiate(objGemas,content2.transform);
+            GameObject maderaRecogida = GameObject.Instantiate(objMaterial,content2.transform,false);
             maderaRecogida.GetComponentInChildren<Text>().text = madera.ToString();
             maderaRecogida.GetComponent<Image>().sprite = sprMadera;
         }
         if (metal >= 1)
         {
-            GameObject metalRecogido = GameObject.Instantiate(objGemas, content2.transform);
+            GameObject metalRecogido = GameObject.Instantiate(objMaterial, content2.transform,false);
             metalRecogido.GetComponentInChildren<Text>().text = metal.ToString();
             metalRecogido.GetComponent<Image>().sprite = sprMetal;
         }
         if (tierra >= 1)
         {
-            GameObject tierraRecogida = GameObject.Instantiate(objGemas, content2.transform);
+            GameObject tierraRecogida = GameObject.Instantiate(objMaterial, content2.transform,false);
             tierraRecogida.GetComponentInChildren<Text>().text = tierra.ToString();
             tierraRecogida.GetComponent<Image>().sprite = sprTierra;
         }

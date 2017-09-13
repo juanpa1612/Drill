@@ -9,7 +9,7 @@ public class Taladro1 : MonoBehaviour {
 	private Vector3 pos;
 	[SerializeField]GameObject camara;
 	[SerializeField]GameObject canvasPostNivel;
-	private Animator animPostNivel;
+    [SerializeField]GameObject canvasMateriales;
 	private Transform tr;
 	private float speedCaida;
 	float tiempoAceleracion;
@@ -55,9 +55,6 @@ public class Taladro1 : MonoBehaviour {
 		tiempoCastigo = 2f;
 		castigo = false;
 		esperar = 0.2f;
-
-		animPostNivel = canvasPostNivel.GetComponent<Animator> ();
-		animPostNivel.SetBool ("Active", false);
 
 		desactivar = false;
 	}
@@ -169,8 +166,8 @@ public class Taladro1 : MonoBehaviour {
 		transform.position = Vector3.MoveTowards (transform.position, pos, Time.deltaTime * speed);
 		if(vidas<=0){
 			//PlayerPrefs.SetInt("Player Coins", camara.GetComponent<SmoothCamera2D>().contador);
-			animPostNivel.SetBool ("Active", true);
-			desactivar = true;
+            canvasPostNivel.SetActive(true);
+            desactivar = true;
 		}
 	}
 	void mover () {
@@ -183,8 +180,12 @@ public class Taladro1 : MonoBehaviour {
     private void OnBecameInvisible()
     {
 		PlayerPrefs.SetInt("Player Coins", PlayerPrefs.GetInt("Player Coins")+camara.GetComponent<SmoothCamera2D>().contador);
-		animPostNivel.SetBool ("Active", true);
-		desactivar = true;
+        if (canvasPostNivel != null)
+        {
+            canvasPostNivel.SetActive(true);
+        }
+
+        desactivar = true;
     }
 
 }

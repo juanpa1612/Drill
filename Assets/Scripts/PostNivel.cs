@@ -34,13 +34,19 @@ public class PostNivel : MonoBehaviour
 
     private string lastLevel = "Prototipo";
 
-	void Start ()
+    private void Awake()
     {
-		drill = GameObject.FindGameObjectWithTag ("MainCamera").GetComponent<SmoothCamera2D>();
+        animEstrellas = estrellas.GetComponent<Animator>();
+    }
 
-		animEstrellas = estrellas.GetComponent<Animator>();
+    IEnumerator Start()
+    {
+        drill = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<SmoothCamera2D>();
+        metrosRecorridos = drill.metros;
+        metrosTotales = 80;
 
-		vidasPlayer = drill.vidas;
+        vidasPlayer = drill.vidas;
+        gemas = drill.contadorRuby;
 
         panel1.gameObject.SetActive(false);
         materiales.SetActive(false);
@@ -49,14 +55,15 @@ public class PostNivel : MonoBehaviour
         StartCoroutine(Panel1());
 
         txtMetros.text = metrosRecorridos.ToString();
-        Score();
-        /*ComprobarEstrellas();*/
+        Score(); 
+        yield return 0;
+        ComprobarEstrellas();
 	}
 
     private void Score ()
     {
+        score = metrosRecorridos + gemas;
         txtScore.text = score.ToString();
-        score = metrosRecorridos + gemas + materialesObtenidos;
     }
 
     private void ComprobarEstrellas()
@@ -67,7 +74,7 @@ public class PostNivel : MonoBehaviour
             animEstrellas.SetInteger("Estrellas",1);
         }
         //2 Estrellas
-        else if (metrosRecorridos >= (metrosTotales / 2))
+        else if (metrosRecorridos >= (metrosTotales / 2) & vidasPlayer != 3)
         {
             animEstrellas.SetInteger("Estrellas", 2);
         }

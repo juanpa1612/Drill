@@ -40,6 +40,7 @@ public class MainMenu : MonoBehaviour
         animPestañaActual = animGifts;
 
         animNiveles.SetBool("Active", true);
+        animNiveles.Play("Entry", 0, 0.9f);
     }
 
     public void Niveles ()
