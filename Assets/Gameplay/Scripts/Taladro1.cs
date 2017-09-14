@@ -36,6 +36,8 @@ public class Taladro1 : MonoBehaviour {
 	public float minSwipeDist;
 	ParticleSystem particulas;
 
+	bool superCaida;
+
 	public int GetVidas(){
 		return vidas;
 	}
@@ -48,7 +50,7 @@ public class Taladro1 : MonoBehaviour {
 		speedCaida = 15f;
 		pos = transform.position;
 		tr = transform;
-		tiempoAceleracion = 1f;
+		tiempoAceleracion = 0.5f;
 		acelerando = false;
 		vidas = 3;
 		flash = 0.5f;
@@ -57,6 +59,8 @@ public class Taladro1 : MonoBehaviour {
 		esperar = 0.2f;
 
 		desactivar = false;
+
+		superCaida = false;
 	}
 
 	public bool getAcelerando(){
@@ -76,6 +80,10 @@ public class Taladro1 : MonoBehaviour {
 			esperar1 = false;
 			esperar=0.2f;
 			speedCaida = 25f;
+			if (superCaida) {
+				tiempoAceleracion = 10f;
+				superCaida = false;
+			}
 			acelerando = true;
 			particulas.Play();
 		}
@@ -91,7 +99,7 @@ public class Taladro1 : MonoBehaviour {
 		}
 		if(tiempoAceleracion<=0){
 			speedCaida = 15f;
-			tiempoAceleracion = 2f;
+			tiempoAceleracion = 0.5f;
 			particulas.Stop();
 			acelerando = false;
 			castigo = true;
@@ -101,13 +109,19 @@ public class Taladro1 : MonoBehaviour {
 		}
 		if (tiempoCastigo <= 0) {
 			castigo = false;
-			tiempoCastigo = 1f;
+			tiempoCastigo = 2f;
 		}
 		if (Input.GetKeyDown (KeyCode.RightArrow)&&tr.position.x==pos.x&&tr.position.x<3) {
 			pos.x+=4;
 		}
 		else if (Input.GetKeyDown (KeyCode.LeftArrow)&&tr.position.x==pos.x&&tr.position.x>-3) {
 			pos.x-=4; 
+		}
+
+		if(camara.GetComponent<SmoothCamera2D>().contadorPowerUp>=7){
+			esperar1 = true;
+			superCaida = true;
+			camara.GetComponent<SmoothCamera2D> ().limpiarIconoPowerUP ();
 		}
 		/*
 		if (Input.touchCount == 1) {
@@ -155,7 +169,7 @@ public class Taladro1 : MonoBehaviour {
 					if (Mathf.Abs (distance.x) < Mathf.Abs (distance.y)) {
 						//Debug.Log ("Vertical Swipe");
 						if (distance.y < 0) {
-							if (!acelerando){
+							if (!acelerando&&!castigo){
 								esperar1 = true;
 							}
 						}
