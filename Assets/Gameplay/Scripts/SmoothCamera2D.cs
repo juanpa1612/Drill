@@ -6,15 +6,13 @@ using UnityEngine.UI;
 	
     public float dampTime = 0.15f;    
     public Transform target;
-	public int contador;
+	public int score;
 	public int contadorRuby;
 	public int contadorMetal;
 	public int metros;
 	public int vidas;
 	private Vector3 velocity = Vector3.zero;
 	private Camera cam;
-	public Text monedas;
-	public Text mostrarVidas;
 	public Text mostrarMetros;
     public bool noTerminado;
 	[SerializeField]private Image[] powerUpGUI;
@@ -52,8 +50,6 @@ using UnityEngine.UI;
             Vector3 destination = transform.position + delta;
             transform.position = Vector3.SmoothDamp(transform.position, destination, ref velocity, dampTime);
          }
-		monedas.text = contador.ToString();
-		mostrarVidas.text = vidas.ToString ();
-		mostrarMetros.text = metros.ToString ();
+		mostrarMetros.text = metros.ToString() + "m";
      }
  }

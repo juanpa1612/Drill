@@ -106,6 +106,7 @@
     <Compile Include="Assets\Scripts\UI Scripts\Misiones.cs" />
     <Compile Include="Assets\Scripts\UI Scripts\Recompensas.cs" />
     <Compile Include="Assets\Scripts\UI Scripts\Taller.cs" />
+    <Compile Include="Assets\Scripts\UI Scripts\VidasUI.cs" />
     <Compile Include="Assets\Scripts\UITouchManager.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

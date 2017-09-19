@@ -62,7 +62,7 @@ public class Enemigo : MonoBehaviour {
 		{
 			if (col.gameObject.GetComponent<Taladro1> ().getAcelerando ()) {
 				Destroy (gameObject);
-				Camara.GetComponent<SmoothCamera2D> ().contador++;
+				Camara.GetComponent<SmoothCamera2D> ().score++;
 
 			} else {
 				col.gameObject.GetComponent<Taladro1> ().quitarVidas ();

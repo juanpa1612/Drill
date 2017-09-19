@@ -13,7 +13,7 @@ ff05dcdf90651c3d98a9cad3df5e471e UnityEngine.Timeline.dll:UnityEngine.Timeline.C
 7b848b7feaa524953d09fc1851efa6da UnityEngine.Timeline.dll:UnityEngine.Timeline.GroupTrack
 7b848b7feaa524953d09fc1851efa6da UnityEngine.Timeline.dll:UnityEngine.Timeline.PlayableTrack
 c24a21b131bfa67be1162db2cba4b52b UnityEngine.Timeline.dll:UnityEngine.Timeline.TimelineAsset
-7c1b7153922fdd2a818a242dddf758bf Assembly-CSharp.dll:.PickupMetal
+6153d58ecf9e3f8e5d5aa0f63603ad0c Assembly-CSharp.dll:.PickupMetal
 7c1b7153922fdd2a818a242dddf758bf Assembly-CSharp.dll:.EndTrigger
 a35dc9cca2faebc5f5f1aeb9e8e47bbe UnityEngine.UI.dll:UnityEngine.UI.AspectRatioFitter
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.UI.dll:UnityEngine.EventSystems.BaseInput
@@ -118,10 +118,11 @@ c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.VR.WSA.Spa
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.Tierra
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.Construccion
 848562e60b79d64b88ea6e9f1ba5eded Assembly-CSharp.dll:.Bodega
-7c1b7153922fdd2a818a242dddf758bf Assembly-CSharp.dll:.PickupRuby
+2471f3a3542f62b73aea2cd96b25b849 Assembly-CSharp.dll:.PickupRuby
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.Rocks
 eb0031c25b139f23b3f88e3a6f0e72ec Assembly-CSharp.dll:.Taladro1
 3f5972ad42b4b8d21256bb0c40842fee Assembly-CSharp.dll:.Inventario
+4d5e65da3e1954fb9c4e81fcda16c86c Assembly-CSharp.dll:.VidasUI
 fc1e0f4d8439d9928083474691511a13 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkAnimator
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Networking.dll:UnityEngine.Networking.NetworkBehaviour
 60b2bb652410a5867a5ab9a01cd38461 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkDiscovery
@@ -152,7 +153,7 @@ bc68edb0af574bf79f9550ead8ebae5c UnityEngine.HoloLens.dll:UnityEngine.Audio.Audi
 c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.VR.WSA.SpatialMappingCollider
 45f3431f0103c41611e8d4eec3d439df UnityEngine.HoloLens.dll:UnityEngine.VR.WSA.SpatialMappingRenderer
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.UITouchManager
-9e3b64d5da27eeae6000102ae053c9fb Assembly-CSharp.dll:.SmoothCamera2D
+6a336b1b9c4aeb8d5e97576c80b16160 Assembly-CSharp.dll:.SmoothCamera2D
 d7fa64b52194178bb2364756972fb579 Assembly-CSharp.dll:.Resources
 039cec1256109a37f90ceeb6d4af6706 Assembly-CSharp.dll:.MainMenu
 11a24539e6103a5d982ed7190b3dfdb9 Assembly-CSharp.dll:.btnNivel

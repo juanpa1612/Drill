@@ -38,12 +38,18 @@ public class Taladro1 : MonoBehaviour {
 
 	bool superCaida;
 
-	public int GetVidas(){
+    //Observer de PerderVida
+    public delegate void EstadoVidas ();
+    public event EstadoVidas PerdioVida;
+
+	public int GetVidas()
+    {
 		return vidas;
 	}
 
 
-	void Start(){
+	void Start()
+    {
 		esperar1 = false;
 		particulas = GetComponentInChildren<ParticleSystem> ();
 		particulas.Stop();
@@ -66,8 +72,12 @@ public class Taladro1 : MonoBehaviour {
 	public bool getAcelerando(){
 		return acelerando;
 	}
-	public void quitarVidas(){
+	public void quitarVidas()
+    {
 		vidas--;
+        //Notifica que perdió vida
+        if (PerdioVida != null)
+            PerdioVida();
 	}
 	// Update is called once per frame
 	void Update () {
@@ -193,7 +203,7 @@ public class Taladro1 : MonoBehaviour {
 
     private void OnBecameInvisible()
     {
-		PlayerPrefs.SetInt("Player Coins", PlayerPrefs.GetInt("Player Coins")+camara.GetComponent<SmoothCamera2D>().contador);
+		PlayerPrefs.SetInt("Player Coins", PlayerPrefs.GetInt("Player Coins")+camara.GetComponent<SmoothCamera2D>().score);
         if (canvasPostNivel != null)
         {
             canvasPostNivel.SetActive(true);
