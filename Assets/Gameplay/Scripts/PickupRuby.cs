@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class PickupRuby : MonoBehaviour
 {
-    [SerializeField]
-    private Camera mainCamera;
+	[SerializeField] 
+	ManagerHUD hud;
     [SerializeField]
     private int scorePorGema;
     [SerializeField]
@@ -23,8 +23,8 @@ public class PickupRuby : MonoBehaviour
 	{
 		if (col.CompareTag("Player")) 
 		{
-            mainCamera.GetComponent<SmoothCamera2D>().contadorRuby++;
-            mainCamera.GetComponent<SmoothCamera2D>().score += scorePorGema;
+			hud.contadorRuby++;
+			hud.score += scorePorGema;
             
             //Texto 1 disponible
             if (txtScore1.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).normalizedTime >= 1)

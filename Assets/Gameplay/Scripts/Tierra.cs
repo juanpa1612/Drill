@@ -5,10 +5,12 @@ using UnityEngine;
 public class Tierra : MonoBehaviour {
 	Transform playTransform;
 	Vector3 pos;
-	GameObject camara;
+	ManagerHUD hud;
+	SmoothCamera2D camara;
 	void Start(){
 		playTransform=GameObject.FindGameObjectWithTag ("Player").transform;
-		camara = GameObject.FindGameObjectWithTag ("MainCamera");
+		hud = GameObject.Find("Canvas").GetComponent<ManagerHUD>();
+		camara = GameObject.FindGameObjectWithTag ("MainCamera").GetComponent<SmoothCamera2D>();
 	}
 
     private void OnTriggerEnter2D(Collider2D col)
@@ -16,12 +18,12 @@ public class Tierra : MonoBehaviour {
 		if (col.gameObject.CompareTag("Player"))
         {
 			gameObject.GetComponent<SpriteRenderer> ().enabled = false;
-			camara.GetComponent<SmoothCamera2D> ().metros++;
+			hud.metros++;
 		}
     }
 
 	void Update(){
-		if(camara.GetComponent<SmoothCamera2D>().noTerminado){
+		if(camara.noTerminado){
 			if(Vector3.Distance(playTransform.position,transform.position)>20){
 				gameObject.GetComponent<SpriteRenderer> ().enabled = true;
 			}

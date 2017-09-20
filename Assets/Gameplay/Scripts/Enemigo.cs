@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemigo : MonoBehaviour {
-	[SerializeField] GameObject Camara;
+	[SerializeField] ManagerHUD hud;
 	[SerializeField] bool Derecha;
 	bool movin;
 	Vector3 posOriginal;
@@ -62,7 +62,7 @@ public class Enemigo : MonoBehaviour {
 		{
 			if (col.gameObject.GetComponent<Taladro1> ().getAcelerando ()) {
 				Destroy (gameObject);
-				Camara.GetComponent<SmoothCamera2D> ().score++;
+				hud.score++;
 
 			} else {
 				col.gameObject.GetComponent<Taladro1> ().quitarVidas ();

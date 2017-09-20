@@ -20,7 +20,7 @@ public class Materiales : MonoBehaviour
 
     private int materialesRecogidos = 3;
 
-    private SmoothCamera2D playerCamera;
+	private ManagerHUD hud;
 
     private int gemasPlayer;
 
@@ -31,10 +31,10 @@ public class Materiales : MonoBehaviour
 
     private void Start()
     {
-        playerCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<SmoothCamera2D>();
+		hud = GameObject.Find("Canvas").GetComponent<ManagerHUD>();
 
-        metal = playerCamera.contadorMetal;
-        gemasPlayer = playerCamera.contadorRuby;
+		metal = hud.contadorMetal;
+		gemasPlayer = hud.contadorRuby;
 
         ContarMateriales();
     }

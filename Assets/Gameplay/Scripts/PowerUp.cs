@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PowerUp : MonoBehaviour {
-	[SerializeField] GameObject camara;
+	[SerializeField] ManagerHUD hud;
 	// Use this for initialization
 	void Start () {
 		
@@ -18,7 +18,7 @@ public class PowerUp : MonoBehaviour {
 	{
 		if (col.CompareTag("Player")) 
 		{
-			camara.GetComponent<SmoothCamera2D> ().PowerUpRecogido ();
+			hud.PowerUpRecogido ();
 			Destroy (gameObject);
 		}
 	}

@@ -24,7 +24,7 @@ public class PostNivel : MonoBehaviour
 
     private Animator animEstrellas;
 
-	private SmoothCamera2D drill;
+	private ManagerHUD hud;
     private float metrosRecorridos;
     private float metrosTotales;
     private float score;
@@ -41,12 +41,12 @@ public class PostNivel : MonoBehaviour
 
     IEnumerator Start()
     {
-        drill = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<SmoothCamera2D>();
-        metrosRecorridos = drill.metros;
+		hud = GameObject.Find("Canvas").GetComponent<ManagerHUD>();
+		metrosRecorridos = hud.metros;
         metrosTotales = 80;
 
-        vidasPlayer = drill.vidas;
-        gemas = drill.contadorRuby;
+		vidasPlayer = hud.vidas;
+		gemas = hud.contadorRuby;
 
         panel1.gameObject.SetActive(false);
         materiales.SetActive(false);

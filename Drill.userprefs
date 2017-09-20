@@ -1,12 +1,18 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Gameplay\Scripts\SmoothCamera2D.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Gameplay\Scripts\Taladro1.cs">
     <Files>
-      <File FileName="Assets\Gameplay\Scripts\Taladro1.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\PostNivel.cs" Line="1" Column="1" />
-      <File FileName="Assets\Gameplay\Scripts\SmoothCamera2D.cs" Line="51" Column="86" />
-      <File FileName="Assets\Gameplay\Scripts\PowerUp.cs" Line="1" Column="1" />
-      <File FileName="Assets\Gameplay\Scripts\PickupRuby.cs" Line="1" Column="1" />
+      <File FileName="Assets\Gameplay\Scripts\Taladro1.cs" Line="126" Column="18" />
+      <File FileName="Assets\Scripts\PostNivel.cs" Line="49" Column="14" />
+      <File FileName="Assets\Gameplay\Scripts\SmoothCamera2D.cs" Line="32" Column="11" />
+      <File FileName="Assets\Gameplay\Scripts\PowerUp.cs" Line="10" Column="3" />
+      <File FileName="Assets\Gameplay\Scripts\PickupRuby.cs" Line="9" Column="17" />
+      <File FileName="Assets\Scripts\UI Scripts\VidasUI.cs" Line="1" Column="1" />
+      <File FileName="Assets\Gameplay\Scripts\ManagerHUD.cs" Line="40" Column="3" />
+      <File FileName="Assets\Gameplay\Scripts\PickupMetal.cs" Line="27" Column="7" />
+      <File FileName="Assets\Gameplay\Scripts\Enemigo.cs" Line="14" Column="3" />
+      <File FileName="Assets\Gameplay\Scripts\Tierra.cs" Line="26" Column="12" />
+      <File FileName="Assets\Scripts\Materiales.cs" Line="37" Column="20" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -6,37 +6,17 @@ using UnityEngine.UI;
 	
     public float dampTime = 0.15f;    
     public Transform target;
-	public int score;
-	public int contadorRuby;
-	public int contadorMetal;
-	public int metros;
-	public int vidas;
+
 	private Vector3 velocity = Vector3.zero;
 	private Camera cam;
-	public Text mostrarMetros;
-    public bool noTerminado;
-	[SerializeField]private Image[] powerUpGUI;
-	public int contadorPowerUp;
+	public bool noTerminado;
 
-	public void limpiarIconoPowerUP(){
-		contadorPowerUp = 0;
-		foreach(Image i in powerUpGUI){
-			i.gameObject.SetActive (false);
-		}
-	}
 
-	public void PowerUpRecogido(){
-		contadorPowerUp++;
-		powerUpGUI [contadorPowerUp - 1].gameObject.SetActive (true);
-	}
 
 	void Awake()
 	{
-		limpiarIconoPowerUP ();
-        noTerminado = true;
-		//contador = PlayerPrefs.GetInt("Player Coins");
-		vidas = 3;
 		cam = GetComponent<Camera> ();
+		noTerminado = true;
 	}
 	void Start () {
 	}
@@ -50,6 +30,5 @@ using UnityEngine.UI;
             Vector3 destination = transform.position + delta;
             transform.position = Vector3.SmoothDamp(transform.position, destination, ref velocity, dampTime);
          }
-		mostrarMetros.text = metros.ToString() + "m";
      }
  }

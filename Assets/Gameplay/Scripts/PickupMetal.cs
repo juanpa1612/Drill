@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class PickupMetal : MonoBehaviour
 {
-    [SerializeField]
-    private Camera mainCamera;
+	[SerializeField] 
+	ManagerHUD hud;
     [SerializeField]
     private int scorePorMetal;
     [SerializeField]
@@ -23,8 +23,8 @@ public class PickupMetal : MonoBehaviour
 	{
 		if (col.CompareTag("Player")) 
 		{
-            mainCamera.GetComponent<SmoothCamera2D>().contadorMetal++;
-            mainCamera.GetComponent<SmoothCamera2D>().score += scorePorMetal;
+			hud.contadorMetal++;
+			hud.score += scorePorMetal;
 
             //Texto 1 disponible
             if (txtScore1.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).normalizedTime >= 1)
