@@ -34,6 +34,8 @@ public class Materiales : MonoBehaviour
 		hud = GameObject.Find("Canvas").GetComponent<ManagerHUD>();
 
 		metal = hud.contadorMetal;
+        madera = hud.contadorMadera;
+
 		gemasPlayer = hud.contadorRuby;
 
         ContarMateriales();

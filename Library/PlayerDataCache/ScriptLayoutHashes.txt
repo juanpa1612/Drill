@@ -158,6 +158,8 @@ c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.VR.WSA.Spa
 d7fa64b52194178bb2364756972fb579 Assembly-CSharp.dll:.Resources
 fc1155a22391685f8437ed75e5541fcc Assembly-CSharp.dll:.ManagerHUD
 039cec1256109a37f90ceeb6d4af6706 Assembly-CSharp.dll:.MainMenu
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.Logros
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:GooglePlayGames.OurUtils.PlayGamesHelperObject
 11a24539e6103a5d982ed7190b3dfdb9 Assembly-CSharp.dll:.btnNivel
 d6cc96d2cc82e25e03a59f68e3b61c87 Assembly-CSharp.dll:.Fabricar
 d9a62bf9259daec46882bfef859225b4 Assembly-CSharp.dll:.Recompensas
