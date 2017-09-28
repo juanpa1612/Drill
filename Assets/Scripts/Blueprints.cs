@@ -1,10 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class GemasPlayer : MonoBehaviour {
-	[SerializeField] Text txtGemas;
+public class Blueprints : MonoBehaviour {
+
 	// Use this for initialization
 	void Start () {
 		
@@ -12,6 +11,6 @@ public class GemasPlayer : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		txtGemas.text = PlayerPrefs.GetInt ("Player Gemas").ToString();
+		
 	}
 }

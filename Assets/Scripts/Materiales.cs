@@ -10,9 +10,9 @@ public class Materiales : MonoBehaviour
     [SerializeField]
     private Sprite sprGemas;
     [SerializeField]
-    private Sprite sprMadera;
+    private Sprite sprLithian;
     [SerializeField]
-    private Sprite sprMetal;
+    private Sprite sprEmber;
     [SerializeField]
     private Sprite sprTierra;
     [SerializeField]
@@ -33,8 +33,8 @@ public class Materiales : MonoBehaviour
     {
 		hud = GameObject.Find("Canvas").GetComponent<ManagerHUD>();
 
-		metal = hud.contadorMetal;
-        madera = hud.contadorMadera;
+		metal = hud.contadorEmber;
+        madera = hud.contadorLithian;
 
 		gemasPlayer = hud.contadorRuby;
 
@@ -55,13 +55,13 @@ public class Materiales : MonoBehaviour
         {
             GameObject maderaRecogida = GameObject.Instantiate(objMaterial,content2.transform,false);
             maderaRecogida.GetComponentInChildren<Text>().text = madera.ToString();
-            maderaRecogida.GetComponent<Image>().sprite = sprMadera;
+            maderaRecogida.GetComponent<Image>().sprite = sprLithian;
         }
         if (metal >= 1)
         {
             GameObject metalRecogido = GameObject.Instantiate(objMaterial, content2.transform,false);
             metalRecogido.GetComponentInChildren<Text>().text = metal.ToString();
-            metalRecogido.GetComponent<Image>().sprite = sprMetal;
+            metalRecogido.GetComponent<Image>().sprite = sprEmber;
         }
         if (tierra >= 1)
         {

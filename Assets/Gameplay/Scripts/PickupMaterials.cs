@@ -9,9 +9,9 @@ public class PickupMaterials : MonoBehaviour
 	ManagerHUD hud;
 
     [SerializeField]
-    private int scorePorMetal;
+    private int scorePorEmber;
     [SerializeField]
-    private int scorePorMadera;
+    private int scorePorLithian;
 
     [SerializeField]
     private Text txtScore1;
@@ -26,10 +26,10 @@ public class PickupMaterials : MonoBehaviour
         txtScore1.GetComponent<Animator>().speed = 0;
 
         //Saber que material es
-        if (tag == "Metal")
-            scoreMaterial = scorePorMetal;
-        if (tag == "Madera")
-            scoreMaterial = scorePorMadera;
+        if (tag == "Ember")
+            scoreMaterial = scorePorEmber;
+        if (tag == "Lithian")
+            scoreMaterial = scorePorLithian;
     }
 
     private void ScoreText ()
@@ -58,13 +58,13 @@ public class PickupMaterials : MonoBehaviour
 	{
 		if (other.CompareTag("Player")) 
 		{
-            if (tag == "Metal")
-                hud.contadorMetal++;
-			    hud.score += scorePorMetal;
+            if (tag == "Ember")
+                hud.contadorEmber++;
+			    hud.score += scorePorEmber;
 
-            if (tag == "Madera")
-                hud.contadorMadera++;
-                hud.score += scorePorMadera;          
+            if (tag == "Lithian")
+                hud.contadorLithian++;
+                hud.score += scorePorLithian;          
         }
 
         ScoreText();

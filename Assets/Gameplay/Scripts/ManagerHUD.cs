@@ -6,8 +6,8 @@ using UnityEngine.UI;
 public class ManagerHUD : MonoBehaviour {
 	public int score;
 	public int contadorRuby;
-	public int contadorMetal;
-    public int contadorMadera;
+	public int contadorEmber;
+    public int contadorLithian;
 	public int metros;
 	public int vidas;
 	public Text mostrarMetros;
