@@ -284,6 +284,7 @@
     <Compile Include="Assets\GooglePlayGames\PluginVersion.cs" />
     <Compile Include="Assets\GPGSIds.cs" />
     <Compile Include="Assets\Logros.cs" />
+    <Compile Include="Assets\Scripts\Blueprints.cs" />
     <Compile Include="Assets\Scripts\Bodega.cs" />
     <Compile Include="Assets\Scripts\btnNivel.cs" />
     <Compile Include="Assets\Scripts\Construccion.cs" />

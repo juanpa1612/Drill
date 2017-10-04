@@ -20,21 +20,23 @@ public class Experimentar : MonoBehaviour
     Slider sliderInvestigacion;
 
     float tiempoInvestigacion;
-    public float tiempoMaterial1;
-    public float tiempoMaterial2;
+    float tiempoMaterial1;
+    float tiempoMaterial2;
 
     string material1;
     string material2;
 
     Button[] botonesMateriales;
 
-    private Image selectedItem;
-    private bool slot1Empty;
-    private bool slot2Empty;
+    Image selectedItem;
+    bool slot1Empty;
+    bool slot2Empty;
 
-    private Animator animAcelerar;
+    Animator animAcelerar;
 
     bool desactivados;
+    [SerializeField]
+    bool materialesEstanActivados  = true;
 
     private void Start()
     {
@@ -51,20 +53,22 @@ public class Experimentar : MonoBehaviour
 
     public void SeleccionarItem ()
     {
-        selectedItem = EventSystem.current.currentSelectedGameObject.GetComponent<Image>();
-        
+        if (materialesEstanActivados)
+        {
+            selectedItem = EventSystem.current.currentSelectedGameObject.GetComponent<Image>();
 
-        if (slot1Empty)
-        {
-            slot1.sprite = selectedItem.sprite;
-            asignarMaterialSlot(slot1.sprite, 1);
-            slot1Empty = false;
-        }
-        else if (slot1Empty == false & slot2Empty == true)
-        {
-            slot2.sprite = selectedItem.sprite;
-            asignarMaterialSlot(slot2.sprite, 2);
-            slot2Empty = false;
+            if (slot1Empty)
+            {
+                slot1.sprite = selectedItem.sprite;
+                asignarMaterialSlot(slot1.sprite, 1);
+                slot1Empty = false;
+            }
+            else if (slot1Empty == false & slot2Empty == true)
+            {
+                slot2.sprite = selectedItem.sprite;
+                asignarMaterialSlot(slot2.sprite, 2);
+                slot2Empty = false;
+            }
         }
     }
 
@@ -72,7 +76,9 @@ public class Experimentar : MonoBehaviour
     {
         if (slotspr.name == "Ember")
         {
-            PlayerPrefs.SetInt("Player Ember", PlayerPrefs.GetInt("Player Ember") - 1);
+            if (PlayerPrefs.GetInt("Player Ember") > 0 )
+                PlayerPrefs.SetInt("Player Ember", PlayerPrefs.GetInt("Player Ember") - 1);
+
             if (numeroSlot == 1)
             {
                 material1 = "Ember";
@@ -84,9 +90,12 @@ public class Experimentar : MonoBehaviour
                 tiempoMaterial2 = 5;
             }
         }
+
         if (slotspr.name == "Lithian")
         {
-            PlayerPrefs.SetInt("Player Lithian", PlayerPrefs.GetInt("Player Lithian") - 1);
+            if (PlayerPrefs.GetInt("Player Lithian") > 0)
+                PlayerPrefs.SetInt("Player Lithian", PlayerPrefs.GetInt("Player Lithian") - 1);
+
             if (numeroSlot == 1)
             {
                 material1 = "Lithian";
@@ -116,6 +125,7 @@ public class Experimentar : MonoBehaviour
         }
         slot1.sprite = null;
         slot1Empty = true;
+
         if (slot2.sprite != null)
         {
             if (slot2.sprite.name == "Ember")
@@ -143,6 +153,8 @@ public class Experimentar : MonoBehaviour
     public void Terminar ()
     {
         animAcelerar.SetBool("Active", false);
+        //Restar Zynux
+        tiempoInvestigacion = 0;
     }
 
     public void DesactivarBotones(string botonMix, string botonClear)
@@ -154,6 +166,7 @@ public class Experimentar : MonoBehaviour
                 botonesMateriales[i].interactable = false;
             }
         }
+        materialesEstanActivados = false;
     }
 
     public void DesactivarBotones()
@@ -162,6 +175,7 @@ public class Experimentar : MonoBehaviour
         {
             botonesMateriales[i].interactable = false;
         }
+        materialesEstanActivados = false;
     }
 
     public void ReactivarBotones()
@@ -170,12 +184,14 @@ public class Experimentar : MonoBehaviour
         {
             botonesMateriales[i].interactable = true;
         }
+        materialesEstanActivados = true;
     }
 
     public void Update()
     {
 
         //Slider
+        sliderInvestigacion.value = tiempoInvestigacion;
         if (tiempoInvestigacion > 0)
         {
             tiempoInvestigacion -= Time.deltaTime;
@@ -184,12 +200,11 @@ public class Experimentar : MonoBehaviour
         {
             ReactivarBotones();
         }
-        sliderInvestigacion.value = tiempoInvestigacion;
 
+        cantidadLithian.text = "x" + PlayerPrefs.GetInt("Player Lithian");
+        cantidadEmber.text = "x" + PlayerPrefs.GetInt("Player Ember");
 
-        cantidadLithian.text = "x" + PlayerPrefs.GetInt("Player Ember");
-        cantidadEmber.text = "x" + PlayerPrefs.GetInt("Player Lithian");
-        if (slot1.sprite!=null&&slot2.sprite!=null)
+        if (slot1.sprite != null && slot2.sprite != null)
         {
             DesactivarBotones("btnMix","btnClear");
             desactivados = true;
