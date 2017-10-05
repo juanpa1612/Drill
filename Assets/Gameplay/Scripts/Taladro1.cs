@@ -130,6 +130,11 @@ public class Taladro1 : MonoBehaviour {
 			}
 		}
 
+        if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            ActivarBoost();
+        }
+
 		if(hud.contadorPowerUp>=7){
 			esperar1 = true;
 			superCaida = true;
