@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Taladro1 : MonoBehaviour {
 	Touch toque;
-	private float speed = 18f;
+	private float speed = 22f;
 	private Vector3 pos;
 	[SerializeField] ManagerHUD hud;
 	[SerializeField]GameObject canvasPostNivel;
@@ -26,7 +26,7 @@ public class Taladro1 : MonoBehaviour {
 	ParticleSystem particulas;
 
 	bool superCaida;
-
+    public Cabeza cabeza;
     //Observer de PerderVida
     public delegate void EstadoVidas ();
     public event EstadoVidas PerdioVida;
@@ -53,7 +53,7 @@ public class Taladro1 : MonoBehaviour {
 		tiempoCastigo = 2f;
 		castigo = false;
 		esperar = 0.2f;
-
+        //speed = cabeza.speed; 
 		desactivar = false;
 
 		superCaida = false;

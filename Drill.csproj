@@ -284,10 +284,15 @@
     <Compile Include="Assets\GooglePlayGames\PluginVersion.cs" />
     <Compile Include="Assets\GPGSIds.cs" />
     <Compile Include="Assets\Logros.cs" />
+    <Compile Include="Assets\ScriptableTest\Scriptables\Cabeza.cs" />
+    <Compile Include="Assets\ScriptableTest\Scriptables\Motor.cs" />
+    <Compile Include="Assets\ScriptableTest\Taladro.cs" />
     <Compile Include="Assets\Scripts\Blueprints.cs" />
     <Compile Include="Assets\Scripts\Bodega.cs" />
+    <Compile Include="Assets\Scripts\btnCrearItem.cs" />
     <Compile Include="Assets\Scripts\btnNivel.cs" />
     <Compile Include="Assets\Scripts\Construccion.cs" />
+    <Compile Include="Assets\Scripts\ManagerTaladro.cs" />
     <Compile Include="Assets\Scripts\Materiales.cs" />
     <Compile Include="Assets\Scripts\PostNivel.cs" />
     <Compile Include="Assets\Scripts\Resources.cs" />
@@ -302,6 +307,7 @@
     <Compile Include="Assets\Scripts\UI Scripts\Misiones.cs" />
     <Compile Include="Assets\Scripts\UI Scripts\Recompensas.cs" />
     <Compile Include="Assets\Scripts\UI Scripts\Taller.cs" />
+    <Compile Include="Assets\Scripts\UI Scripts\UIManager.cs" />
     <Compile Include="Assets\Scripts\UI Scripts\VidasUI.cs" />
     <Compile Include="Assets\Scripts\UITouchManager.cs" />
   </ItemGroup>

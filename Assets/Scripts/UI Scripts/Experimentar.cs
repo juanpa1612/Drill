@@ -38,6 +38,16 @@ public class Experimentar : MonoBehaviour
     [SerializeField]
     bool materialesEstanActivados  = true;
 
+    public string getMaterial1()
+    {
+        return material1;
+    }
+
+    public string getMaterial2()
+    {
+        return material2;
+    }
+
     private void Start()
     {
 
@@ -68,6 +78,7 @@ public class Experimentar : MonoBehaviour
                 slot2.sprite = selectedItem.sprite;
                 asignarMaterialSlot(slot2.sprite, 2);
                 slot2Empty = false;
+                gameObject.GetComponent<Blueprints>().ComprobarMaterial(material1, material2);
             }
         }
     }
@@ -125,7 +136,6 @@ public class Experimentar : MonoBehaviour
         }
         slot1.sprite = null;
         slot1Empty = true;
-
         if (slot2.sprite != null)
         {
             if (slot2.sprite.name == "Ember")
@@ -140,6 +150,7 @@ public class Experimentar : MonoBehaviour
         }
         slot2.sprite = null;
         slot2Empty = true;
+        GetComponent<Blueprints>().Clear();
     }
 
     public void Mix ()
@@ -154,7 +165,7 @@ public class Experimentar : MonoBehaviour
     {
         animAcelerar.SetBool("Active", false);
         //Restar Zynux
-        tiempoInvestigacion = 0;
+        tiempoInvestigacion = 0.5f;
     }
 
     public void DesactivarBotones(string botonMix, string botonClear)
@@ -196,9 +207,10 @@ public class Experimentar : MonoBehaviour
         {
             tiempoInvestigacion -= Time.deltaTime;
         }
-        else
+        if (tiempoInvestigacion >0 && tiempoInvestigacion <=1)
         {
-            ReactivarBotones();
+            GetComponent<Blueprints>().ActivarItem(material1, material2);
+            animAcelerar.SetBool("Active", false);
         }
 
         cantidadLithian.text = "x" + PlayerPrefs.GetInt("Player Lithian");
