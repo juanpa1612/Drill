@@ -7,7 +7,7 @@ public class Motor : ScriptableObject
 {
     public string name;
 
-    public float life;
+    public int life;
 
     public string req1;
     public string req2;

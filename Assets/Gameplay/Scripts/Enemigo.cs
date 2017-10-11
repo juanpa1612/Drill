@@ -61,9 +61,7 @@ public class Enemigo : MonoBehaviour {
 		if (col.CompareTag("Player")) 
 		{
 			if (col.gameObject.GetComponent<Taladro1> ().getAcelerando ()) {
-				Destroy (gameObject);
-				hud.score++;
-
+                Destroy(gameObject);
 			} else {
 				col.gameObject.GetComponent<Taladro1> ().quitarVidas ();
 				col.gameObject.GetComponent<SpriteRenderer> ().color=Color.red;

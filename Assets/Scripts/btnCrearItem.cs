@@ -9,6 +9,7 @@ public class btnCrearItem : MonoBehaviour
     Motor motorActual;
     [SerializeField]
     GameObject ventanaCrearItem;
+    [SerializeField] ManagerPartesPlayer partesPlayer;
 
     Button boton;
     private void Start()
@@ -27,7 +28,13 @@ public class btnCrearItem : MonoBehaviour
     }
     public void Hagamoslo ()
     {
-        UIManager.Instance.CloseWindow();
-        //Aca se restan los materiales del motor: valor Req1 y valor Req2
+        if (PlayerPrefs.GetInt("Player " + motorActual.req1)>motorActual.valorReq1&& PlayerPrefs.GetInt("Player " + motorActual.req2) > motorActual.valorRequ2) {
+            PlayerPrefs.SetInt("Player " + motorActual.req1, PlayerPrefs.GetInt("Player " + motorActual.req1) - 1);
+            PlayerPrefs.SetInt("Player " + motorActual.req2, PlayerPrefs.GetInt("Player " + motorActual.req2) - 1);
+            partesPlayer.SetMotorPlayer(motorActual);
+            UIManager.Instance.CloseWindow(ventanaCrearItem);
+            Debug.Log(partesPlayer.GetMotorPlayer().name);
+            //Aca se restan los materiales del motor: valor Req1 y valor Req
+        }
     }
 }

@@ -26,10 +26,13 @@ public class Taladro1 : MonoBehaviour {
 	ParticleSystem particulas;
 
 	bool superCaida;
-    public Cabeza cabeza;
+    Cabeza cabeza;
+    Motor motor;
     //Observer de PerderVida
     public delegate void EstadoVidas ();
     public event EstadoVidas PerdioVida;
+
+    ManagerPartesPlayer partes;
 
 	public int GetVidas()
     {
@@ -43,12 +46,12 @@ public class Taladro1 : MonoBehaviour {
 		esperar1 = false;
 		particulas = GetComponentInChildren<ParticleSystem> ();
 		particulas.Stop();
-		speedCaida = 15f;
+		//speedCaida = 15f;
 		pos = transform.position;
 		tr = transform;
 		tiempoAceleracion = 0.5f;
 		acelerando = false;
-		vidas = 3;
+		//vidas = 3;
 		flash = 0.5f;
 		tiempoCastigo = 2f;
 		castigo = false;
@@ -57,7 +60,15 @@ public class Taladro1 : MonoBehaviour {
 		desactivar = false;
 
 		superCaida = false;
-	}
+
+        partes = GameObject.FindGameObjectWithTag("ManagerPartes").GetComponent<ManagerPartesPlayer>();
+        cabeza = partes.GetCabezaPlayer();
+        motor = partes.GetMotorPlayer();
+        vidas = motor.life;
+        Debug.Log(vidas);
+        speedCaida = cabeza.speed;
+        Debug.Log(speedCaida);
+    }
 
 	public float GetTransformPositionX(){
 		return tr.position.x;
