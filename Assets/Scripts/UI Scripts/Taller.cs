@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 
 public class Taller : MonoBehaviour
 {
-    public CanvasGroup equipacion;
+    public GameObject equipacion;
     public CanvasGroup lab;
 
     private Animator animEquipacion;
@@ -30,11 +30,13 @@ public class Taller : MonoBehaviour
     }
     public void AbrirVentana()
     {
-        animEquipacion.SetBool("Active", true);
+        //animEquipacion.SetBool("Active", true);
+        UIManager.Instance.OpenWindow(equipacion);
     }
     public void CerrarVentana()
     {
-        animEquipacion.SetBool("Active", false);
+        //animEquipacion.SetBool("Active", false);
+        UIManager.Instance.CloseWindow();
     }
 
     public void Crear()

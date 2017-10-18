@@ -31,16 +31,19 @@ public class Taladro1 : MonoBehaviour {
     //Observer de PerderVida
     public delegate void EstadoVidas ();
     public event EstadoVidas PerdioVida;
-
+    [SerializeField]
     ManagerPartesPlayer partes;
 
 	public int GetVidas()
     {
 		return vidas;
 	}
+    private void Awake()
+    {
 
+    }
 
-	void Start()
+    void Start()
     {
         muerto = false;
 		esperar1 = false;
@@ -58,16 +61,15 @@ public class Taladro1 : MonoBehaviour {
 		esperar = 0.2f;
         //speed = cabeza.speed; 
 		desactivar = false;
-
-		superCaida = false;
-
-        partes = GameObject.FindGameObjectWithTag("ManagerPartes").GetComponent<ManagerPartesPlayer>();
-        cabeza = partes.GetCabezaPlayer();
-        motor = partes.GetMotorPlayer();
+        cabeza = partes.cabezaPlayer;
+        motor = partes.motorPlayer;
         vidas = motor.life;
         Debug.Log(vidas);
         speedCaida = cabeza.speed;
         Debug.Log(speedCaida);
+        superCaida = false;
+
+
     }
 
 	public float GetTransformPositionX(){

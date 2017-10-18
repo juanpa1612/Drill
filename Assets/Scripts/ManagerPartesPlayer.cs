@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+[CreateAssetMenu]
+public class ManagerPartesPlayer : ScriptableObject
+{
 
-public class ManagerPartesPlayer : MonoBehaviour {
-    [SerializeField] ManagerTaladro partes;
-    static Motor motorPlayer;
-    static Cabeza cabezaPlayer;
+    public Motor motorPlayer;
+    public Cabeza cabezaPlayer;
+    /*
     void Start()
     {
         if (motorPlayer==null)
@@ -36,4 +38,5 @@ public class ManagerPartesPlayer : MonoBehaviour {
     {
         return cabezaPlayer;
     }
+    */
 }

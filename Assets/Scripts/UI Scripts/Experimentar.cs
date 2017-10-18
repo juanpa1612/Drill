@@ -209,6 +209,8 @@ public class Experimentar : MonoBehaviour
         }
         if (tiempoInvestigacion >0 && tiempoInvestigacion <=1)
         {
+            ReactivarBotones();
+            Clear();
             GetComponent<Blueprints>().ActivarItem(material1, material2);
             animAcelerar.SetBool("Active", false);
         }

@@ -292,6 +292,7 @@
     <Compile Include="Assets\Scripts\btnCrearItem.cs" />
     <Compile Include="Assets\Scripts\btnNivel.cs" />
     <Compile Include="Assets\Scripts\Construccion.cs" />
+    <Compile Include="Assets\Scripts\ManagerPartesPlayer.cs" />
     <Compile Include="Assets\Scripts\ManagerTaladro.cs" />
     <Compile Include="Assets\Scripts\Materiales.cs" />
     <Compile Include="Assets\Scripts\PostNivel.cs" />
@@ -305,6 +306,7 @@
     <Compile Include="Assets\Scripts\UI Scripts\Laboratorio.cs" />
     <Compile Include="Assets\Scripts\UI Scripts\MainMenu.cs" />
     <Compile Include="Assets\Scripts\UI Scripts\Misiones.cs" />
+    <Compile Include="Assets\Scripts\UI Scripts\motoresTaller.cs" />
     <Compile Include="Assets\Scripts\UI Scripts\Recompensas.cs" />
     <Compile Include="Assets\Scripts\UI Scripts\Taller.cs" />
     <Compile Include="Assets\Scripts\UI Scripts\UIManager.cs" />
