@@ -279,6 +279,7 @@
      <Compile Include="Assets\Scripts\UI Scripts\Laboratorio.cs" />
      <Compile Include="Assets\Scripts\UI Scripts\MainMenu.cs" />
      <Compile Include="Assets\Scripts\UI Scripts\Misiones.cs" />
+     <Compile Include="Assets\Scripts\UI Scripts\motoresTaller.cs" />
      <Compile Include="Assets\Scripts\UI Scripts\Recompensas.cs" />
      <Compile Include="Assets\Scripts\UI Scripts\Taller.cs" />
      <Compile Include="Assets\Scripts\UI Scripts\UIManager.cs" />

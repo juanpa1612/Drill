@@ -7,17 +7,19 @@ public class Tierra : MonoBehaviour {
 	Vector3 pos;
 	ManagerHUD hud;
 	SmoothCamera2D camara;
+    SpriteRenderer sprRenderer;
 	void Start(){
 		playTransform=GameObject.FindGameObjectWithTag ("Player").transform;
 		hud = GameObject.Find("Canvas").GetComponent<ManagerHUD>();
 		camara = GameObject.FindGameObjectWithTag ("MainCamera").GetComponent<SmoothCamera2D>();
+        sprRenderer = gameObject.GetComponent<SpriteRenderer>();
 	}
 
     private void OnTriggerEnter2D(Collider2D col)
     {
 		if (col.gameObject.CompareTag("Player"))
         {
-			gameObject.GetComponent<SpriteRenderer> ().enabled = false;
+            sprRenderer.enabled = false;
 			hud.metros++;
 		}
     }
@@ -25,7 +27,7 @@ public class Tierra : MonoBehaviour {
 	void Update(){
 		if(camara.noTerminado){
 			if(Vector3.Distance(playTransform.position,transform.position)>20){
-				gameObject.GetComponent<SpriteRenderer> ().enabled = true;
+				sprRenderer.enabled = true;
 			}
 
 			if(transform.position.y-playTransform.position.y>10){
