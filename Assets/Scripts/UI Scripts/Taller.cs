@@ -20,22 +20,17 @@ public class Taller : MonoBehaviour
 
     private void Start()
     {
-        animEquipacion = equipacion.GetComponent<Animator>();
         animTaller = gameObject.GetComponent<Animator>();
         animLab = lab.GetComponent<Animator>();
 
         mainMenu = GameObject.Find("Canvas").GetComponent<MainMenu>();
-
-        animEquipacion.SetBool("Active", false);
     }
     public void AbrirVentana()
-    {
-        //animEquipacion.SetBool("Active", true);
+    {      
         UIManager.Instance.OpenWindow(equipacion);
     }
     public void CerrarVentana()
     {
-        //animEquipacion.SetBool("Active", false);
         UIManager.Instance.CloseWindow();
     }
 

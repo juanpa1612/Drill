@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
+    [SerializeField]
     GameObject activeWindow;
 
     public void OpenWindow (GameObject windowToShow)
@@ -22,7 +23,10 @@ public class UIManager : MonoBehaviour
     }
     public void CloseWindow()
     {
-        activeWindow.GetComponent<Animator>().SetBool("Active", false);
+        if (activeWindow != null)
+        {
+            activeWindow.GetComponent<Animator>().SetBool("Active", false);
+        }
     }
 
     #region Singleton

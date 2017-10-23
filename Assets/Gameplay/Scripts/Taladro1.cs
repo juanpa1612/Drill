@@ -64,9 +64,8 @@ public class Taladro1 : MonoBehaviour {
         cabeza = partes.cabezaPlayer;
         motor = partes.motorPlayer;
         vidas = motor.life;
-        Debug.Log(vidas);
+
         speedCaida = cabeza.speed;
-        Debug.Log(speedCaida);
         superCaida = false;
 
 

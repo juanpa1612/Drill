@@ -9,18 +9,19 @@ public class MainMenu : MonoBehaviour
     public CanvasGroup taller;
     public CanvasGroup laboratorio;
     public CanvasGroup inventario;
-    public CanvasGroup ajustes;
 
-    public CanvasGroup gift;
-    public CanvasGroup tasks;
+    //Pestañas
+    public GameObject ajustes;
+    public GameObject gift;
+    public GameObject tasks;
 
     private Animator animActual;
-    private Animator animPestañaActual;
 
     private Animator animNiveles;
     private Animator animTaller;
     private Animator animLaboratorio;
     private Animator animInventario;
+
     private Animator animAjustes;
     private Animator animGifts;
     private Animator animTasks;
@@ -32,12 +33,8 @@ public class MainMenu : MonoBehaviour
         animTaller = taller.GetComponent<Animator>();
         animLaboratorio = laboratorio.GetComponent<Animator>();
         animInventario = inventario.GetComponent<Animator>();
-        animAjustes = ajustes.GetComponent<Animator>();
-        animGifts = gift.GetComponent<Animator>();
-        animTasks = tasks.GetComponent<Animator>();
 
         animActual = animNiveles;
-        animPestañaActual = animGifts;
 
         animNiveles.SetBool("Active", true);
         animNiveles.Play("Entry", 0, 0.9f);
@@ -46,7 +43,7 @@ public class MainMenu : MonoBehaviour
     public void Niveles ()
     {
         animActual.SetBool("Active", false);
-        animPestañaActual.SetBool("Active", false);
+        UIManager.Instance.CloseWindow();
 
         animActual = animNiveles;
 
@@ -56,7 +53,7 @@ public class MainMenu : MonoBehaviour
     public void Taller ()
     {
         animActual.SetBool("Active", false);
-        animPestañaActual.SetBool("Active", false);
+        UIManager.Instance.CloseWindow();
 
         animActual = animTaller;
 
@@ -66,7 +63,7 @@ public class MainMenu : MonoBehaviour
     public void Laboratorio ()
     {
         animActual.SetBool("Active", false);
-        animPestañaActual.SetBool("Active", false);
+        UIManager.Instance.CloseWindow();
 
         animActual = animLaboratorio;
 
@@ -76,7 +73,7 @@ public class MainMenu : MonoBehaviour
     public void Inventario()
     {
         animActual.SetBool("Active", false);
-        animPestañaActual.SetBool("Active", false);
+        UIManager.Instance.CloseWindow();
 
         animActual = animInventario;
 
@@ -85,25 +82,17 @@ public class MainMenu : MonoBehaviour
 
     public void Ajustes ()
     {
-        animAjustes.SetBool("Active", true);
-        animPestañaActual = animAjustes;
+        UIManager.Instance.OpenWindow(ajustes);
     }
 
     public void Gifts ()
     {
-        animGifts.SetBool("Active", true);
-        animPestañaActual = animGifts;
+        UIManager.Instance.OpenWindow(gift);
     }
 
     public void Tasks ()
     {
-        animTasks.SetBool("Active", true);
-        animPestañaActual = animTasks;
-    }
-
-    public void ExitPestaña ()
-    {
-        animPestañaActual.SetBool("Active", false);
+        UIManager.Instance.OpenWindow(gift);
     }
 
     public Animator AnimActual
@@ -119,16 +108,4 @@ public class MainMenu : MonoBehaviour
         }
     }
 
-    public Animator AnimPestañaActual
-    {
-        get
-        {
-            return animPestañaActual;
-        }
-
-        set
-        {
-            animPestañaActual = value;
-        }
-    }
 }

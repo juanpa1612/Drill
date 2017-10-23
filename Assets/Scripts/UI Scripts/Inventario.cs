@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Inventario : MonoBehaviour
 {
 
-    public CanvasGroup ventanaVender;
+    public GameObject ventanaVender;
     public GameObject contentTaladros;
     public GameObject contentCuerpos;
     public GameObject materiales;
@@ -24,11 +24,10 @@ public class Inventario : MonoBehaviour
     {
         mainMenu = GameObject.Find("Canvas").GetComponent<MainMenu>();
 
-        animVender = ventanaVender.GetComponent<Animator>();
+
         animTaladros = taladros.GetComponent<Animator>();
         animCuerpos = cuerpos.GetComponent<Animator>();
 
-        animVender.SetBool("Active", false);
         animActual = animTaladros;
         animTaladros.SetBool("Active", true);
     }
@@ -57,14 +56,9 @@ public class Inventario : MonoBehaviour
 
     public void VentanaVender ()
     {
-        animVender.SetBool("Active", true);
-        mainMenu.AnimPestañaActual = animVender;
+        UIManager.Instance.OpenWindow(ventanaVender);
     }
 
-    public void CerrarVentanaVender ()
-    {
-        animVender.SetBool("Active", false);
-    }
 
 
 }

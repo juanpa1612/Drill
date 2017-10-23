@@ -54,7 +54,7 @@ public class PostNivel : MonoBehaviour
 
         StartCoroutine(Panel1());
 
-        txtMetros.text = metrosRecorridos.ToString();
+        txtMetros.text = metrosRecorridos.ToString()+"m";
         Score(); 
         yield return 0;
         ComprobarEstrellas();
