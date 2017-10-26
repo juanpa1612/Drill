@@ -19,12 +19,14 @@ public class PickupRuby : MonoBehaviour
         txtScore1.GetComponent<Animator>().speed = 1;
     }
 
+
     void OnTriggerEnter2D (Collider2D col)
 	{
 		if (col.CompareTag("Player")) 
 		{
 			hud.contadorRuby++;
 			hud.score += scorePorGema;
+           
             
             //Texto 1 disponible
             if (txtScore1.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).normalizedTime >= 1)
@@ -43,8 +45,11 @@ public class PickupRuby : MonoBehaviour
                     txtScore2.GetComponent<Animator>().Play("MaterialScore", 0, 0);
                 }
             }
+            col.GetComponent<Taladro1>().IniciarParticulasPickUP();
             Destroy (gameObject);
-		}
+            
+            
+        }
 	}
 
 }

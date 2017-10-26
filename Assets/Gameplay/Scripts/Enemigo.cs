@@ -7,10 +7,12 @@ public class Enemigo : MonoBehaviour {
 	[SerializeField] bool Derecha;
 	bool movin;
 	Vector3 posOriginal;
+    CameraShake camara;
 
 	void Start(){
 		posOriginal = transform.position;
 		movin = true;
+        camara = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraShake>();
 	}
 
 	void Update(){
@@ -63,6 +65,7 @@ public class Enemigo : MonoBehaviour {
 			if (col.gameObject.GetComponent<Taladro1> ().getAcelerando ()) {
                 Destroy(gameObject);
 			} else {
+                camara.ShakeCamera(1, 0.03f);
 				col.gameObject.GetComponent<Taladro1> ().quitarVidas ();
 				col.gameObject.GetComponent<SpriteRenderer> ().color=Color.red;
 				Destroy (gameObject);

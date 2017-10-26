@@ -51,6 +51,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Gameplay\Scripts\CameraShake.cs" />
      <Compile Include="Assets\Gameplay\Scripts\EndTrigger.cs" />
      <Compile Include="Assets\Gameplay\Scripts\Enemigo.cs" />
      <Compile Include="Assets\Gameplay\Scripts\ManagerHUD.cs" />
@@ -257,14 +258,21 @@
      <Compile Include="Assets\GooglePlayGames\PluginVersion.cs" />
      <Compile Include="Assets\GPGSIds.cs" />
      <Compile Include="Assets\Logros.cs" />
-     <Compile Include="Assets\ScriptableTest\Scriptables\Cabeza.cs" />
-     <Compile Include="Assets\ScriptableTest\Scriptables\Motor.cs" />
-     <Compile Include="Assets\ScriptableTest\Taladro.cs" />
-     <Compile Include="Assets\Scripts\Blueprints.cs" />
+     <Compile Include="Assets\ScriptableObjects\Componentes\Cabeza.cs" />
+     <Compile Include="Assets\ScriptableObjects\Componentes\Motor.cs" />
+     <Compile Include="Assets\ScriptableObjects\Taladro.cs" />
      <Compile Include="Assets\Scripts\Bodega.cs" />
-     <Compile Include="Assets\Scripts\btnCrearItem.cs" />
      <Compile Include="Assets\Scripts\btnNivel.cs" />
      <Compile Include="Assets\Scripts\Construccion.cs" />
+     <Compile Include="Assets\Scripts\Garage\btnGarageItem.cs" />
+     <Compile Include="Assets\Scripts\Garage\drillPreview.cs" />
+     <Compile Include="Assets\Scripts\Garage\GarageComponents.cs" />
+     <Compile Include="Assets\Scripts\Garage\motoresTaller.cs" />
+     <Compile Include="Assets\Scripts\GemasPlayer.cs" />
+     <Compile Include="Assets\Scripts\Lab\Blueprints.cs" />
+     <Compile Include="Assets\Scripts\Lab\btnCrearItem.cs" />
+     <Compile Include="Assets\Scripts\Lab\Experimentar.cs" />
+     <Compile Include="Assets\Scripts\Lab\Fabricar.cs" />
      <Compile Include="Assets\Scripts\ManagerPartesPlayer.cs" />
      <Compile Include="Assets\Scripts\ManagerTaladro.cs" />
      <Compile Include="Assets\Scripts\Materiales.cs" />
@@ -272,14 +280,10 @@
      <Compile Include="Assets\Scripts\Resources.cs" />
      <Compile Include="Assets\Scripts\TouchManager.cs" />
      <Compile Include="Assets\Scripts\TouchManager2.cs" />
-     <Compile Include="Assets\Scripts\UI Scripts\Experimentar.cs" />
-     <Compile Include="Assets\Scripts\UI Scripts\Fabricar.cs" />
-     <Compile Include="Assets\Scripts\UI Scripts\GemasPlayer.cs" />
      <Compile Include="Assets\Scripts\UI Scripts\Inventario.cs" />
      <Compile Include="Assets\Scripts\UI Scripts\Laboratorio.cs" />
      <Compile Include="Assets\Scripts\UI Scripts\MainMenu.cs" />
      <Compile Include="Assets\Scripts\UI Scripts\Misiones.cs" />
-     <Compile Include="Assets\Scripts\UI Scripts\motoresTaller.cs" />
      <Compile Include="Assets\Scripts\UI Scripts\Recompensas.cs" />
      <Compile Include="Assets\Scripts\UI Scripts\Taller.cs" />
      <Compile Include="Assets\Scripts\UI Scripts\UIManager.cs" />

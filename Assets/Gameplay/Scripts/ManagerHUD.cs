@@ -13,6 +13,8 @@ public class ManagerHUD : MonoBehaviour {
 	public Text mostrarMetros;
 	[SerializeField]private Image[] powerUpGUI;
 	public int contadorPowerUp;
+    public float estadoBarra;
+    public Image barraAceleracion;
 
 	public void limpiarIconoPowerUP(){
 		contadorPowerUp = 0;
@@ -37,6 +39,7 @@ public class ManagerHUD : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        barraAceleracion.fillAmount = estadoBarra;
 		mostrarMetros.text = metros.ToString() + "m";
 	}
 }

@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Rocks : MonoBehaviour {
-    
+    CameraShake camara;
 	// Use this for initialization
 	void Start () {
-		
+        camara = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraShake>();
 	}
 	
 	// Update is called once per frame
@@ -17,7 +17,8 @@ public class Rocks : MonoBehaviour {
 			if (col.gameObject.GetComponent<Taladro1> ().getAcelerando ()) {
 				Destroy (gameObject);
 			} else {
-				col.gameObject.GetComponent<Taladro1> ().quitarVidas ();
+                camara.ShakeCamera(1f, 0.03f);
+                col.gameObject.GetComponent<Taladro1> ().quitarVidas ();
 				col.gameObject.GetComponent<SpriteRenderer> ().color=Color.red;
 				Destroy (gameObject);
 			}

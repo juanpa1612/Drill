@@ -23,7 +23,7 @@ public class Taladro1 : MonoBehaviour {
 	bool desactivar;
     bool muerto;
 
-	ParticleSystem particulas;
+	ParticleSystem[] particulas;
 
 	bool superCaida;
     Cabeza cabeza;
@@ -33,6 +33,9 @@ public class Taladro1 : MonoBehaviour {
     public event EstadoVidas PerdioVida;
     [SerializeField]
     ManagerPartesPlayer partes;
+    bool particulasPickupActivas;
+    float tiempoParticulasPickup = 0.03f;
+    bool barraGrande;
 
 	public int GetVidas()
     {
@@ -45,10 +48,13 @@ public class Taladro1 : MonoBehaviour {
 
     void Start()
     {
+        barraGrande = false;
+        particulasPickupActivas = false;
         muerto = false;
 		esperar1 = false;
-		particulas = GetComponentInChildren<ParticleSystem> ();
-		particulas.Stop();
+		particulas = GetComponentsInChildren<ParticleSystem> ();
+		particulas[0].Stop();
+        particulas[2].Stop();
 		//speedCaida = 15f;
 		pos = transform.position;
 		tr = transform;
@@ -89,8 +95,38 @@ public class Taladro1 : MonoBehaviour {
         if (PerdioVida != null)
             PerdioVida();
 	}
-	// Update is called once per frame
-	void Update () {
+
+    public void IniciarParticulasPickUP()
+    {
+        particulas[2].Play();
+        particulasPickupActivas = true;
+    }
+
+    public void DetenerParticulasPickUP()
+    {
+        particulas[2].Stop();
+        particulasPickupActivas = false;
+    }
+
+    // Update is called once per frame
+    void Update () {
+        if (!barraGrande)
+        {
+            hud.estadoBarra = (tiempoAceleracion*10) / 5;
+        }
+        else
+        {
+            hud.estadoBarra = (tiempoAceleracion) / 5;
+        }
+        if (particulasPickupActivas)
+        {
+            tiempoParticulasPickup -= Time.deltaTime;
+            if (tiempoParticulasPickup<=0)
+            {
+                DetenerParticulasPickUP();
+                tiempoParticulasPickup = 0.03f;
+            }
+        }
 		hud.vidas=vidas;
 		moverAbajo ();
 		if (esperar1) {
@@ -101,12 +137,14 @@ public class Taladro1 : MonoBehaviour {
 			esperar=0.2f;
 			speedCaida = 25f;
 			if (superCaida) {
+                barraGrande = true;
 				tiempoAceleracion = 5f;
 				superCaida = false;
 			}
 			acelerando = true;
-			particulas.Play();
-		}
+			particulas[0].Play();
+            particulas[1].Stop();
+        }
 		if (gameObject.GetComponent<SpriteRenderer> ().color == Color.red) {
 			flash -= Time.deltaTime;
 		}
@@ -119,15 +157,20 @@ public class Taladro1 : MonoBehaviour {
 		}
 		if(tiempoAceleracion<=0){
 			speedCaida = 15f;
-			tiempoAceleracion = 0.5f;
-			particulas.Stop();
-			acelerando = false;
+			particulas[0].Stop();
+            particulas[1].Play();
+            acelerando = false;
 			castigo = true;
 		}
 		if (castigo) {
 			tiempoCastigo -= Time.deltaTime;
 		}
 		if (tiempoCastigo <= 0) {
+            tiempoAceleracion = 0.5f;
+            if (barraGrande)
+            {
+                barraGrande = false;
+            }
 			castigo = false;
 			tiempoCastigo = 2f;
 		}

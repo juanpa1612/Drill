@@ -68,6 +68,7 @@ public class PickupMaterials : MonoBehaviour
         }
 
         ScoreText();
+        other.GetComponent<Taladro1>().IniciarParticulasPickUP();
         Destroy (gameObject);
 	}
 }
