@@ -11,7 +11,8 @@ public class GemasPlayer : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
 		txtGemas.text = PlayerPrefs.GetInt ("Player Gemas").ToString();
 	}
 }
