@@ -5,13 +5,13 @@ using UnityEngine.UI;
 
 public class GemasPlayer : MonoBehaviour {
 	[SerializeField] Text txtGemas;
-	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
 		
 	}
 	
-	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
 		txtGemas.text = PlayerPrefs.GetInt ("Player Gemas").ToString();
 	}
 }

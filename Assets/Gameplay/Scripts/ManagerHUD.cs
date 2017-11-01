@@ -38,7 +38,8 @@ public class ManagerHUD : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
         barraAceleracion.fillAmount = estadoBarra;
 		mostrarMetros.text = metros.ToString() + "m";
 	}

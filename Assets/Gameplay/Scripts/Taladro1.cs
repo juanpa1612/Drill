@@ -9,6 +9,7 @@ public class Taladro1 : MonoBehaviour {
 	private Vector3 pos;
 	[SerializeField] ManagerHUD hud;
 	[SerializeField]GameObject canvasPostNivel;
+    [SerializeField]GameObject postNivelLose;
     [SerializeField]GameObject canvasMateriales;
 	private Transform tr;
 	private float speedCaida;
@@ -31,6 +32,7 @@ public class Taladro1 : MonoBehaviour {
     //Observer de PerderVida
     public delegate void EstadoVidas ();
     public event EstadoVidas PerdioVida;
+
     [SerializeField]
     ManagerPartesPlayer partes;
     bool particulasPickupActivas;
@@ -200,7 +202,7 @@ public class Taladro1 : MonoBehaviour {
 		if(vidas<=0){
             //PlayerPrefs.SetInt("Player Coins", camara.GetComponent<SmoothCamera2D>().contador);
             muerto = true;
-            canvasPostNivel.SetActive(true);
+            postNivelLose.SetActive(true);
             desactivar = true;
 		}
 	}

@@ -19,7 +19,7 @@ public class Experimentar : MonoBehaviour
     [SerializeField]
     Slider sliderInvestigacion;
 
-    float tiempoInvestigacion;
+    public float tiempoInvestigacion;
     float tiempoMaterial1;
     float tiempoMaterial2;
 
@@ -33,7 +33,6 @@ public class Experimentar : MonoBehaviour
     bool slot2Empty;
 
     bool desactivados;
-    [SerializeField]
     bool materialesEstanActivados  = true;
 
     public string getMaterial1()
@@ -157,7 +156,7 @@ public class Experimentar : MonoBehaviour
     {
         UIManager.Instance.CloseWindow();
         //Restar Zynux
-        tiempoInvestigacion = 0.5f;
+        tiempoInvestigacion = 0.25f;
     }
 
     public void DesactivarBotones(string botonMix, string botonClear)
@@ -189,7 +188,30 @@ public class Experimentar : MonoBehaviour
         }
         materialesEstanActivados = true;
     }
+    /*
+    public void TiempoInvestigacion ()
+    {
+        while (tiempoInvestigacion >0)
+        {
+            sliderInvestigacion.value = tiempoInvestigacion;
+            tiempoInvestigacion -= Time.deltaTime;
+            if (tiempoInvestigacion > 0 && tiempoInvestigacion <= 0.25f)
+            {
+                ReactivarBotones();
 
+                slot1.sprite = null;
+                slot1Empty = true;
+                slot2.sprite = null;
+                slot2Empty = true;
+                GetComponent<Blueprints>().Clear();
+
+                UIManager.Instance.CloseWindow();
+                GetComponent<Blueprints>().ActivarItem(material1, material2);
+            }
+        }
+        
+    }
+    */
     public void Update()
     {
 
@@ -199,7 +221,7 @@ public class Experimentar : MonoBehaviour
         {
             tiempoInvestigacion -= Time.deltaTime;
         }
-        if (tiempoInvestigacion >0 && tiempoInvestigacion <=1)
+        if (tiempoInvestigacion >0 && tiempoInvestigacion <=0.25f)
         {
             ReactivarBotones();
 
@@ -212,7 +234,7 @@ public class Experimentar : MonoBehaviour
             UIManager.Instance.CloseWindow();
             GetComponent<Blueprints>().ActivarItem(material1, material2);        
         }
-
+        
         cantidadLithian.text = "x" + PlayerPrefs.GetInt("Player Lithian");
         cantidadEmber.text = "x" + PlayerPrefs.GetInt("Player Ember");
 
