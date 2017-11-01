@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class CameraShake : MonoBehaviour {
-
+    [SerializeField] AudioManager manager;
 	public bool debugMode = false;//Test-run/Call ShakeCamera() on start
 
 	public float shakeAmount;//The amount to shake this frame.
@@ -33,7 +33,7 @@ public class CameraShake : MonoBehaviour {
 	}
 
 	public void ShakeCamera(float amount, float duration) {
-
+        manager.CorrerAudioChoque();
 		shakeAmount += amount;//Add to the current amount.
 		startAmount = shakeAmount;//Reset the start amount, to determine percentage.
 		shakeDuration += duration;//Add to the current time.

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PowerUp : MonoBehaviour {
 	[SerializeField] ManagerHUD hud;
+    [SerializeField] AudioManager manager;
 	// Use this for initialization
 	void Start () {
 		
@@ -18,6 +19,7 @@ public class PowerUp : MonoBehaviour {
 	{
 		if (col.CompareTag("Player")) 
 		{
+            manager.CorrerAudioMaterialesPowerup();
 			hud.PowerUpRecogido ();
 			Destroy (gameObject);
 		}

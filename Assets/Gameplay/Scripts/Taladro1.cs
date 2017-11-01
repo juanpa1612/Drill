@@ -39,6 +39,8 @@ public class Taladro1 : MonoBehaviour {
     float tiempoParticulasPickup = 0.03f;
     bool barraGrande;
 
+    [SerializeField] AudioManager manager;
+
 	public int GetVidas()
     {
 		return vidas;
@@ -193,7 +195,8 @@ public class Taladro1 : MonoBehaviour {
         }
 
 		if(hud.contadorPowerUp>=7){
-			esperar1 = true;
+            manager.CorrerAudioSwipeAbajo();
+            esperar1 = true;
 			superCaida = true;
 			hud.limpiarIconoPowerUP ();
 		}
@@ -227,6 +230,7 @@ public class Taladro1 : MonoBehaviour {
 
 	public void ActivarBoost(){
 		if (!acelerando&&!castigo&&!desactivar){
+            manager.CorrerAudioSwipeAbajo();
 			esperar1 = true;
 		}
 	}
@@ -234,6 +238,7 @@ public class Taladro1 : MonoBehaviour {
     private void OnBecameInvisible()
     {
         if (!muerto) {
+            manager.CorrerAudioGanarNivel();
             PlayerPrefs.SetInt("Player Gemas", PlayerPrefs.GetInt("Player Gemas") + hud.contadorRuby);
             PlayerPrefs.SetInt("Player Ember", PlayerPrefs.GetInt("Player Ember") + hud.contadorEmber);
             PlayerPrefs.SetInt("Player Lithian", PlayerPrefs.GetInt("Player Lithian") + hud.contadorLithian);

@@ -13,6 +13,7 @@ public class PickupRuby : MonoBehaviour
     private Text txtScore1;
     [SerializeField]
     private Text txtScore2;
+    [SerializeField]AudioManager manager;
 
     private void Awake ()
     {
@@ -24,6 +25,7 @@ public class PickupRuby : MonoBehaviour
 	{
 		if (col.CompareTag("Player")) 
 		{
+            manager.CorrerAudioGemas();
 			hud.contadorRuby++;
 			hud.score += scorePorGema;
            

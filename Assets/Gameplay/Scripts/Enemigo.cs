@@ -5,6 +5,7 @@ using UnityEngine;
 public class Enemigo : MonoBehaviour {
 	[SerializeField] ManagerHUD hud;
 	[SerializeField] bool Derecha;
+    [SerializeField] AudioManager manager;
 	bool movin;
 	Vector3 posOriginal;
     CameraShake camara;
@@ -63,6 +64,7 @@ public class Enemigo : MonoBehaviour {
 		if (col.CompareTag("Player")) 
 		{
 			if (col.gameObject.GetComponent<Taladro1> ().getAcelerando ()) {
+                manager.CorrerAudioRomperRoca();
                 Destroy(gameObject);
 			} else {
                 camara.ShakeCamera(1, 0.03f);

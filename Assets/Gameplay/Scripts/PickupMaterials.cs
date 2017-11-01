@@ -18,6 +18,7 @@ public class PickupMaterials : MonoBehaviour
     [SerializeField]
     private Text txtScore2;
 
+    [SerializeField] AudioManager manager;
 
     private int scoreMaterial;
 
@@ -68,6 +69,7 @@ public class PickupMaterials : MonoBehaviour
         }
 
         ScoreText();
+        manager.CorrerAudioMaterialesPowerup();
         other.GetComponent<Taladro1>().IniciarParticulasPickUP();
         Destroy (gameObject);
 	}

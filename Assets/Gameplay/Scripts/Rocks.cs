@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Rocks : MonoBehaviour {
     CameraShake camara;
+    [SerializeField] AudioManager manager;
 	// Use this for initialization
 	void Start () {
         camara = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraShake>();
@@ -15,7 +16,8 @@ public class Rocks : MonoBehaviour {
 		if (col.CompareTag("Player")) 
 		{
 			if (col.gameObject.GetComponent<Taladro1> ().getAcelerando ()) {
-				Destroy (gameObject);
+                manager.CorrerAudioRomperRoca();
+                Destroy (gameObject);
 			} else {
                 camara.ShakeCamera(1f, 0.03f);
                 col.gameObject.GetComponent<Taladro1> ().quitarVidas ();
